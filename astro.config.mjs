@@ -1,74 +1,55 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import image from "@astrojs/image";
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { autolinkConfig } from "./plugins/rehype-autolink-config";
-import rehypeSlug from "rehype-slug";
-import astroI18next from "astro-i18next";
-import alpinejs from "@astrojs/alpinejs";
-import AstroPWA from "@vite-pwa/astro";
+import tailwind from "@astrojs/tailwind";
+import AutoImport from "astro-auto-import";
+import { defineConfig } from "astro/config";
+import remarkCollapse from "remark-collapse";
+import remarkToc from "remark-toc";
+import config from "./src/config/config.json";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://astros.zank.studio",
-	vite: {
-		define: {
-			__DATE__: `'${new Date().toISOString()}'`,
-		},
-	},
-	integrations: [
-		tailwind(),
-		sitemap(),
-		astroI18next(),
-		alpinejs(),
-		AstroPWA({
-			mode: "production",
-			base: "/",
-			scope: "/",
-			includeAssets: ["favicon.svg"],
-			registerType: "autoUpdate",
-			manifest: {
-				name: "Astros - Starter Template for Astro with Tailwind CSS",
-				short_name: "Astros",
-				theme_color: "#ffffff",
-				icons: [
-					{
-						src: "pwa-192x192.png",
-						sizes: "192x192",
-						type: "image/png",
-					},
-					{
-						src: "pwa-512x512.png",
-						sizes: "512x512",
-						type: "image/png",
-					},
-					{
-						src: "pwa-512x512.png",
-						sizes: "512x512",
-						type: "image/png",
-						purpose: "any maskable",
-					},
-				],
-			},
-			workbox: {
-				navigateFallback: "/404",
-				globPatterns: ["*.js"],
-			},
-			devOptions: {
-				enabled: false,
-				navigateFallbackAllowlist: [/^\/404$/],
-				suppressWarnings: true,
-			},
-		}),
-	],
-	markdown: {
-		rehypePlugins: [
-			rehypeSlug,
-			// This adds links to headings
-			[rehypeAutolinkHeadings, autolinkConfig],
-		],
-	},
-	experimental: {
-		contentCollectionCache: true,
-	}
+  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
+  base: config.site.base_path ? config.site.base_path : "/",
+  trailingSlash: config.site.trailing_slash ? "always" : "never",
+  integrations: [
+    react(),
+    sitemap(),
+    tailwind({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+    AutoImport({
+      imports: [
+        "@shortcodes/Button",
+        "@shortcodes/Accordion",
+        "@shortcodes/Notice",
+        "@shortcodes/Video",
+        "@shortcodes/Youtube",
+      ],
+    }),
+    mdx(),
+  ],
+  markdown: {
+    remarkPlugins: [
+      remarkToc,
+      [
+        remarkCollapse,
+        {
+          test: "Table of contents",
+        },
+      ],
+    ],
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    },
+    extendDefaultPlugins: true,
+  },
 });

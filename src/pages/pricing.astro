@@ -1,71 +1,50 @@
 ---
-import { changeLanguage } from "i18next";
-import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
-import Pricing from "@components/pricing.astro";
-import Logos from "@components/logos.astro";
-import Faq from "@components/faq.astro";
+import Base from "@layouts/Base.astro";
+import Cta from "@layouts/components/Cta.astro";
+import { getEntryBySlug } from "astro:content";
 
-changeLanguage("en");
-
-const pricingData = [
-    {
-        name: "Personal",
-        price: "Free",
-        popular: false,
-        features: ["Lifetime free", "Up to 3 users", "Unlimited Pages", "Astro Sub domain", "Basic Integrations", "Community Support"],
-        button: {
-            text: "Get Started",
-            link: "/",
-        },
-    },
-    {
-        name: "Startup",
-        price: {
-            monthly: "$19",
-            annual: "$16",
-            discount: "10%",
-            original: "$24",
-        },
-        popular: true,
-        features: [
-            "All Free Features",
-            "Up to 20 users",
-            "20 Custom domains",
-            "Unlimited Collaborators",
-            "Advanced Integrations",
-            "Priority Support",
-        ],
-        button: {
-            text: "Get Started",
-            link: "#",
-        },
-    },
-    {
-        name: "Enterprise",
-        price: "Custom",
-        popular: false,
-        features: ["All Pro Features", "Unlimited Custom domains", "99.99% Uptime SLA", "SAML & SSO Integration", "24/7 Phone Support"],
-        button: {
-            text: "Contact us",
-            link: "/contact",
-        },
-    },
-];
+const entry = await getEntryBySlug("pricing", "index");
+const { title, description, plans, call_to_action } = entry.data;
 ---
 
-<Layout title="Pricing">
-	<Container>
-		<Sectionhead>
-			<Fragment slot="title">Pricing</Fragment>
-			<Fragment slot="desc">Affordable Excellence: See Our Pricing.</Fragment>
-		</Sectionhead>
-
-		<div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-20">
-			{pricingData.map((item) => <Pricing plan={item} />)}
-		</div>
-		<!-- <Logos /> -->
-		<Faq />
-	</Container>
-</Layout>
+<Base title={title} description={description}>
+  <section class="section pb-0">
+    <div class="container">
+      <h1 class="text-center font-normal">{title}</h1>
+      <div class="section row -mt-10 justify-center md:mt-0">
+        {
+          plans?.map((plan) => (
+            <div
+              class={`col-12 md:col-4 ${
+                !plan.recommended ? "lg:px-0" : "col-recommended"
+              }`}
+            >
+              <div class="card text-center">
+                <h4>{plan.title}</h4>
+                <div class="mt-5">
+                  <span class="text-5xl text-dark">${plan.price}</span>
+                  <span>/ {plan.type}</span>
+                </div>
+                <h5 class="mt-2 font-normal text-text">{plan.subtitle}</h5>
+                <ul class="mt-5">
+                  {plan?.features?.map((feature, index) => (
+                    <li class="mb-[10px] leading-5">{feature}</li>
+                  ))}
+                </ul>
+                <a
+                  class={`btn mt-5 ${
+                    plan.recommended ? "btn-primary" : "btn-outline-primary"
+                  }`}
+                  href={plan.button.link}
+                >
+                  {plan.button.label}
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <Cta cta={call_to_action} />
+</Base>
