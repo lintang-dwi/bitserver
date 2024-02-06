@@ -1,55 +1,95 @@
-import image from "@astrojs/image";
-import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import AutoImport from "astro-auto-import";
-import { defineConfig } from "astro/config";
-import remarkCollapse from "remark-collapse";
-import remarkToc from "remark-toc";
-import config from "./src/config/config.json";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// https://astro.build/config
+import { defineConfig, squooshImageService } from 'astro/config';
+
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown';
+import icon from 'astro-icon';
+import compress from 'astro-compress';
+import tasks from './src/utils/tasks';
+
+import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
+
+import { ANALYTICS, SITE } from './src/utils/config.ts';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const whenExternalScripts = (items = []) =>
+  ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown
+    ? Array.isArray(items)
+      ? items.map((item) => item())
+      : [items()]
+    : [];
+
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
-  base: config.site.base_path ? config.site.base_path : "/",
-  trailingSlash: config.site.trailing_slash ? "always" : "never",
+  site: SITE.site,
+  base: SITE.base,
+  trailingSlash: SITE.trailingSlash ? 'always' : 'never',
+
+  output: 'static',
+
   integrations: [
-    react(),
-    sitemap(),
     tailwind({
-      config: {
-        applyBaseStyles: false,
+      applyBaseStyles: false,
+    }),
+    sitemap(),
+    mdx(),
+    icon({
+      include: {
+        tabler: ['*'],
+        'flat-color-icons': [
+          'template',
+          'gallery',
+          'approval',
+          'document',
+          'advertising',
+          'currency-exchange',
+          'voice-presentation',
+          'business-contact',
+          'database',
+        ],
       },
     }),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
-    AutoImport({
-      imports: [
-        "@shortcodes/Button",
-        "@shortcodes/Accordion",
-        "@shortcodes/Notice",
-        "@shortcodes/Video",
-        "@shortcodes/Youtube",
-      ],
-    }),
-    mdx(),
-  ],
-  markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
+
+    ...whenExternalScripts(() =>
+      partytown({
+        config: { forward: ['dataLayer.push'] },
+      })
+    ),
+
+    compress({
+      CSS: true,
+      HTML: {
+        'html-minifier-terser': {
+          removeAttributeQuotes: false,
         },
-      ],
-    ],
-    shikiConfig: {
-      theme: "one-dark-pro",
-      wrap: true,
+      },
+      Image: false,
+      JavaScript: true,
+      SVG: false,
+      Logger: 1,
+    }),
+
+    tasks(),
+  ],
+
+  image: {
+    service: squooshImageService(),
+  },
+
+  markdown: {
+    remarkPlugins: [readingTimeRemarkPlugin],
+    rehypePlugins: [responsiveTablesRehypePlugin],
+  },
+
+  vite: {
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, './src'),
+      },
     },
-    extendDefaultPlugins: true,
   },
 });

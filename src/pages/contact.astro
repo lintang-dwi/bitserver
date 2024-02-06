@@ -1,71 +1,78 @@
 ---
-import config from "@config/config.json";
-import Base from "@layouts/Base.astro";
-import { markdownify } from "@lib/utils/textConverter";
-import { getEntryBySlug } from "astro:content";
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 
-const entry = await getEntryBySlug("contact", "index");
-const { contact_form_action } = config.params;
-const { title, description, info } = entry?.data;
+const metadata = {
+  title: 'Contact',
+};
 ---
 
-<Base title={title} description={description}>
-  <section class="section">
-    <div class="container">
-      <h1 class="text-center font-normal" set:html={markdownify(title)} />
-      <div class="section row pb-0">
-        <div class="col-12 md:col-6 lg:col-7">
-          <form class="contact-form" method="POST" action={contact_form_action}>
-            <div class="mb-3">
-              <input
-                class="form-input w-full rounded"
-                name="name"
-                type="text"
-                placeholder="Name"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                class="form-input w-full rounded"
-                name="email"
-                type="email"
-                placeholder="Your email"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                class="form-input w-full rounded"
-                name="subject"
-                type="text"
-                placeholder="Subject"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <textarea
-                class="form-textarea w-full rounded-md"
-                rows="7"
-                placeholder="Your message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary"> Send Now</button>
-          </form>
-        </div>
-        <div class="content col-12 md:col-6 lg:col-5">
-          <h4 set:html={markdownify(info?.title)} />
-          <p class="mt-4" set:html={markdownify(info?.description)} />
-          <ul class="contact-list mt-5 list-none pl-0">
-            {
-              info?.contacts?.map((contact: string) => (
-                <li>
-                  <strong class="text-dark" set:html={markdownify(contact)} />
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</Base>
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="Contact" title="Let's Connect!" />
+
+  <ContactUs
+    title="Drop us a message today!"
+    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="Our support team typically responds within 24 business hours."
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="We are here to help!"
+    items={[
+      {
+        title: 'General support',
+        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+      },
+      {
+        title: 'Contact sales',
+        description:
+          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+      },
+      {
+        title: 'Technical support',
+        description:
+          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+      },
+      {
+        title: 'Phone',
+        description: '+1 (234) 567-890',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Email',
+        description: 'contact@support.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Location',
+        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+</Layout>
