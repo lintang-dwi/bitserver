@@ -15,7 +15,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 const metadata = {
-  title: 'Solusi Server Anda',
+  title: 'CV Bangkit Informatika, Solusi Server Anda, Raport Digitam Madrasah, RDM Hosting',
 };
 ---
 
@@ -24,11 +24,11 @@ const metadata = {
     <Header
       {...headerData}
       actions={[
-        {
-          variant: 'secondary',
-          text: 'Kontak Kami',
-          href: '/contact',
-        },
+        // {
+        //   variant: 'secondary',
+        //   text: 'Kontak Kami',
+        //   href: '/contact',
+        // },
         {
           variant: 'primary',
           text: 'Whatsapp',
@@ -43,7 +43,7 @@ const metadata = {
   <Hero2
     tagline="Server yang Aman, Kinerja Terbaik"
     actions={[
-      { variant: 'primary', target: '_blank', text: 'Kontak Kami', href: '/contact' },
+      { variant: 'primary', target: '_blank', text: 'Selengkapnya Tentang Kami', href: '/about' },
       { text: 'Cek Harga Kami', href: '#harga' },
     ]}
     image={{
@@ -329,10 +329,10 @@ id="harga"
 
   <Steps2
     title="Kontak Kami"
-    subtitle="Have questions? Feel free to contact us using the form below. We're here to help!"
+    subtitle="Anda masih punya pertanyaan? langsung tanyakan kepada kami melalui kontak Whastapp dibawah"
     callToAction={{
-      text: 'Selengkapnya',
-      href: '/contact',
+      text: 'Saya ingin bertanya?',
+      href: 'https://api.whatsapp.com/send/?phone=6285174201840&text=Saya+dari+website+bitserver.cloud+ingin+bertanya+%3F&type=phone_number&app_absent=0',
     }}
     items={[
       {

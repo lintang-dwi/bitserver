@@ -16,10 +16,10 @@ export const headerData = {
       href: getPermalink('/pricing')
     },
    
-    {
-      text: 'Kontak Kami',
-          href: getPermalink('/contact'),
-    },
+    // {
+    //   text: 'Kontak Kami',
+    //       href: getPermalink('/contact'),
+    // },
     // {
     //   text: 'Homes',
     //   links: [
