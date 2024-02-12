@@ -15,7 +15,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 const metadata = {
-  title: 'Solusi Server Anda',
+  title: 'CV Bangkit Informatika, Solusi Server Anda, Raport Digitam Madrasah, RDM Hosting',
 };
 ---
 
@@ -24,11 +24,11 @@ const metadata = {
     <Header
       {...headerData}
       actions={[
-        {
-          variant: 'secondary',
-          text: 'Kontak Kami',
-          href: '/contact',
-        },
+        // {
+        //   variant: 'secondary',
+        //   text: 'Kontak Kami',
+        //   href: '/contact',
+        // },
         {
           variant: 'primary',
           text: 'Whatsapp',
@@ -43,7 +43,7 @@ const metadata = {
   <Hero2
     tagline="Server yang Aman, Kinerja Terbaik"
     actions={[
-      { variant: 'primary', target: '_blank', text: 'Kontak Kami', href: '/contact' },
+      { variant: 'primary', target: '_blank', text: 'Selengkapnya Tentang Kami', href: '/about' },
       { text: 'Cek Harga Kami', href: '#harga' },
     ]}
     image={{
@@ -52,15 +52,16 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      Hosting Server Terbaik untuk  <span class="text-accent dark:text-white highlight"
-        >Situs Anda </span> 
+      Hosting Server Terbaik untuk <span class="text-accent dark:text-white highlight">Situs Anda </span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Selamat datang di layanan hosting server unggulan dari 
-        <span class="font-semibold">CV Bangkit Informatika Teknologi (Banitech).</span></span>
-        Kami menyediakan solusi hosting server yang andal dan canggih untuk memastikan situs web Anda tetap online dan berkinerja optimal. Temukan layanan hosting server terbaik untuk memenuhi kebutuhan Anda di sini!
+        Selamat datang di layanan hosting server unggulan dari
+        <span class="font-semibold">CV Bangkit Informatika Teknologi (Banitech).</span></span
+      >
+      Kami menyediakan solusi hosting server yang andal dan canggih untuk memastikan situs web Anda tetap online dan berkinerja
+      optimal. Temukan layanan hosting server terbaik untuk memenuhi kebutuhan Anda di sini!
     </Fragment>
   </Hero2>
 
@@ -108,7 +109,7 @@ const metadata = {
   />
 
   <Stats
-    title= "Pengguna Layanan Kita"
+    title="Pengguna Layanan Kita"
     stats={[
       { title: 'Lembaga', amount: '50' },
       { title: 'Website Sekolah', amount: '18' },
@@ -119,171 +120,168 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
-  title="Layanan Kami, Pilihan Terbaik Anda"
-  subtitle="Temukan bagaimana layanan hosting server kami menjadi solusi ideal untuk berbagai kasus penggunaan, memberikan solusi yang disesuaikan untuk mencapai kesuksesan."
-  isReversed
-  items={[
-    {
-      title: 'Apakah Anda mencari solusi hosting server yang dapat diandalkan untuk kebutuhan Anda?',
-      description:
-        ' CV Bangkit Informatika Teknologi adalah jawabannya. Dari startup yang baru berdiri hingga bisnis besar, layanan hosting server kami telah terbukti mampu memberikan keandalan tinggi dan kinerja optimal untuk berbagai kasus penggunaan. Dukungan teknis profesional kami siap membantu Anda mengatasi setiap tantangan teknis.',
-    },
-    {
-      title: 'Manfaat menggunakan BITServer:',
-      description: `- Memberikan keamanan data yang tinggi dan proteksi terhadap ancaman cyber. <br /> - Menjamin kinerja optimal situs web Anda untuk meningkatkan pengalaman pengguna. <br /> - Menyediakan penyesuaian mudah dan skalabilitas untuk pertumbuhan bisnis Anda. <br /> - Menawarkan dukungan teknis yang responsif dan berkualitas untuk memastikan kelancaran operasional situs web Anda. <br /> - Membantu bisnis kecil dan besar dalam mencapai tujuan online mereka dengan solusi hosting yang handal. `,
-    },
-  ]}
-  image={{
-    src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Gambar Hosting Server',
-  }}
->
-  <Fragment slot="content">
-    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-      Anda mencari server hosting yang handal untuk website, aplikasi digital rapot, e-learning ? <br /><span class="text-2xl">Layanan Hosting Server</span>
-    </h3>
-  </Fragment>
+    title="Layanan Kami, Pilihan Terbaik Anda"
+    subtitle="Temukan bagaimana layanan hosting server kami menjadi solusi ideal untuk berbagai kasus penggunaan, memberikan solusi yang disesuaikan untuk mencapai kesuksesan."
+    isReversed
+    items={[
+      {
+        title: 'Apakah Anda mencari solusi hosting server yang dapat diandalkan untuk kebutuhan Anda?',
+        description:
+          ' CV Bangkit Informatika Teknologi adalah jawabannya. Dari startup yang baru berdiri hingga bisnis besar, layanan hosting server kami telah terbukti mampu memberikan keandalan tinggi dan kinerja optimal untuk berbagai kasus penggunaan. Dukungan teknis profesional kami siap membantu Anda mengatasi setiap tantangan teknis.',
+      },
+      {
+        title: 'Manfaat menggunakan BITServer:',
+        description: `- Memberikan keamanan data yang tinggi dan proteksi terhadap ancaman cyber. <br /> - Menjamin kinerja optimal situs web Anda untuk meningkatkan pengalaman pengguna. <br /> - Menyediakan penyesuaian mudah dan skalabilitas untuk pertumbuhan bisnis Anda. <br /> - Menawarkan dukungan teknis yang responsif dan berkualitas untuk memastikan kelancaran operasional situs web Anda. <br /> - Membantu bisnis kecil dan besar dalam mencapai tujuan online mereka dengan solusi hosting yang handal. `,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      alt: 'Gambar Hosting Server',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Anda mencari server hosting yang handal untuk website, aplikasi digital rapot, e-learning ? <br /><span
+          class="text-2xl">Layanan Hosting Server</span
+        >
+      </h3>
+    </Fragment>
 
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-  </Fragment>
-</Content>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
   <!-- Content Widget **************** -->
 
   <Content
-  isAfterContent={true}
-  items={[
-    {
-      title: 'Pembuatan Website:',
-      description: ` Layanan pembuatan website kami memastikan bahwa Anda dapat memamerkan produk dan layanan Anda secara intuitif. Dengan integrasi teknologi terbaru, kami menjamin desain yang ramah pengguna dan menarik perhatian pengunjung. Dapat disesuaikan dengan kebutuhan anda untuk profile sekolah, company profile ataupun toko online.`,
-    },
-    {
-      title: 'Keunggulan website kami :',
-      description: `- Menyediakan desain yang kohesif dan berorientasi pada pengguna untuk situs web Anda. <br /> - Efektif menyampaikan informasi produk dan layanan Anda melalui visual yang menarik. <br /> - Memprioritaskan kebutuhan pengguna dengan tata letak yang terstruktur dan navigasi yang jelas. <br /> - Mendorong pengunjung untuk mengambil tindakan dengan CTA yang strategis. <br /> - Memastikan situs web Anda berfungsi dengan baik di semua perangkat.`,
-    },
-  ]}
-  image={{
-    src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1355&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Gambar Bisnis Website',
-  }}
->
-  <Fragment slot="content">
-    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-      Anda butuh website ? <br /><span class="text-2xl">Menyederhanakan pengalaman pengguna</span>
-    </h3>
-  </Fragment>
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Pembuatan Website:',
+        description: ` Layanan pembuatan website kami memastikan bahwa Anda dapat memamerkan produk dan layanan Anda secara intuitif. Dengan integrasi teknologi terbaru, kami menjamin desain yang ramah pengguna dan menarik perhatian pengunjung. Dapat disesuaikan dengan kebutuhan anda untuk profile sekolah, company profile ataupun toko online.`,
+      },
+      {
+        title: 'Keunggulan website kami :',
+        description: `- Menyediakan desain yang kohesif dan berorientasi pada pengguna untuk situs web Anda. <br /> - Efektif menyampaikan informasi produk dan layanan Anda melalui visual yang menarik. <br /> - Memprioritaskan kebutuhan pengguna dengan tata letak yang terstruktur dan navigasi yang jelas. <br /> - Mendorong pengunjung untuk mengambil tindakan dengan CTA yang strategis. <br /> - Memastikan situs web Anda berfungsi dengan baik di semua perangkat.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1355&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      alt: 'Gambar Bisnis Website',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Anda butuh website ? <br /><span class="text-2xl">Menyederhanakan pengalaman pengguna</span>
+      </h3>
+    </Fragment>
 
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-  </Fragment>
-</Content>
-
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
   <!-- Content Widget **************** -->
 
-  
-
   <!-- Pricing Widget ******************* -->
   <HeroText
-  tagline="Harga"
-  title="Harga Terbaik untuk Setiap Kebutuhan"
-  subtitle="Pilih paket hosting Anda, Jika belum ada website kami siap untuk membuatkan di Custom Order"
-/>
+    tagline="Harga"
+    title="Harga Terbaik untuk Setiap Kebutuhan"
+    subtitle="Pilih paket hosting Anda, Jika belum ada website kami siap untuk membuatkan di Custom Order"
+  />
 
-<!-- Pricing Widget ******************* -->
+  <!-- Pricing Widget ******************* -->
 
-<Prices
-id="harga"
-  title="Harga Layanan Kami"
-  subtitle="Bayar sesuai pilihan anda"
-  prices={[
-    {
-      title: 'Subdomain Hosting',
-      subtitle: 'Cocok dengan UMKM dan Bisnis Kecil yang membutuhkan hosting untuk websitenya',
-      price: 300,
-      period: 'Per Tahun',
-      items: [
-        {
-          description: 'Backup database berkala',
-        },
-        {
-          description: 'Kecepatan Akses Ideal',
-        },
-        {
-          description: 'Dukungan Teknis 24/7',
-        },
-        {
-          description: 'Subdomain dari Kami nama.bitserver.cloud',
-        },
-        
-      ],
-      callToAction: {
-        target: '_blank',
-        text: 'Subdomain',
-        href: 'https://wa.me/6285174201840?text=Saya%20dari%20website%20bitserver.cloud%20saya%20tertarik%20menggunakan%20subdomain',
-      },
-    },
-    {
-      title: 'Domain Sendiri (sch.id Khusus Sekolah)',
-      subtitle: 'Paket khusus untuk lembaga yang membutuhkan hosting untuk websitenya',
-      price: 450,
-      period: 'Per Tahun',
-      items: [
-        {
-          description: 'Backup database berkala',
-        },
-        {
-          description: 'Kecepatan Akses Ideal+',
-        },
-        {
-          description: 'Dukungan Teknis 24/7',
-        },
-        {
-          description: 'Domain nama.sch.id',
-        },
-        
-      ],
-      callToAction: {
-        target: '_blank',
-        text: 'Domain sch.id',
-        href: 'https://wa.me/6285174201840?text=Saya%20dari%20website%20bitserver.cloud%20saya%20tertarik%20menggunakan%20sch.id',
-      },
-      hasRibbon: true,
-      ribbonTitle: 'Diskon',
-      discount: true,
-      dprice: 400,
-    },
-    {
-      title: 'Custom Order',
-      subtitle: 'Jika Anda membuhkan website dan domain Custom Order paket ini sangat cocok untuk Anda',
-      price: '-',
-      period: 'Per Tahun',
-      items: [
+  <Prices
+    id="harga"
+    title="Harga Layanan Kami"
+    subtitle="Bayar sesuai pilihan anda"
+    prices={[
       {
-          description: 'Backup database berkala',
+        title: 'Subdomain Hosting',
+        subtitle: 'Cocok dengan UMKM dan Bisnis Kecil yang membutuhkan hosting untuk websitenya',
+        price: 300,
+        period: 'Per Tahun',
+        items: [
+          {
+            description: 'Backup database berkala',
+          },
+          {
+            description: 'Kecepatan Akses Ideal',
+          },
+          {
+            description: 'Dukungan Teknis 24/7',
+          },
+          {
+            description: 'Subdomain dari Kami nama.bitserver.cloud',
+          },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Subdomain',
+          href: 'https://wa.me/6285174201840?text=Saya%20dari%20website%20bitserver.cloud%20saya%20tertarik%20menggunakan%20subdomain',
         },
-        {
-          description: 'Kecepatan Akses Ideal',
-        },
-        {
-          description: 'Dukungan Teknis 24/7',
-        },
-        {
-          description: 'Domain sesuai permintaan(Gratis Cek nama domain)',
-        },
-        {
-          description: 'Costum Website (Company Profile, Website Sekolah dan lain lain)',
-        },
-      ],
-      callToAction: {
-        target: '_blank',
-        text: 'Costum Order',
-        href: 'https://wa.me/6285174201840?text=Saya%20dari%20website%20bitserver.cloud%20saya%20tertarik%20menggunakan%20custom%20order',
       },
-    },
-  ]}
-/>
+      {
+        title: 'Domain Sendiri (sch.id Khusus Sekolah)',
+        subtitle: 'Paket khusus untuk lembaga yang membutuhkan hosting untuk websitenya',
+        price: 450,
+        period: 'Per Tahun',
+        items: [
+          {
+            description: 'Backup database berkala',
+          },
+          {
+            description: 'Kecepatan Akses Ideal+',
+          },
+          {
+            description: 'Dukungan Teknis 24/7',
+          },
+          {
+            description: 'Domain nama.sch.id',
+          },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Domain sch.id',
+          href: 'https://wa.me/6285174201840?text=Saya%20dari%20website%20bitserver.cloud%20saya%20tertarik%20menggunakan%20sch.id',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Diskon',
+        discount: true,
+        dprice: 400,
+      },
+      {
+        title: 'Custom Order',
+        subtitle: 'Jika Anda membuhkan website dan domain Custom Order paket ini sangat cocok untuk Anda',
+        price: '-',
+        period: 'Per Tahun',
+        items: [
+          {
+            description: 'Backup database berkala',
+          },
+          {
+            description: 'Kecepatan Akses Ideal',
+          },
+          {
+            description: 'Dukungan Teknis 24/7',
+          },
+          {
+            description: 'Domain sesuai permintaan(Gratis Cek nama domain)',
+          },
+          {
+            description: 'Costum Website (Company Profile, Website Sekolah dan lain lain)',
+          },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Costum Order',
+          href: 'https://wa.me/6285174201840?text=Saya%20dari%20website%20bitserver.cloud%20saya%20tertarik%20menggunakan%20custom%20order',
+        },
+      },
+    ]}
+  />
 
   <!-- FAQs Widget ******************* -->
 
@@ -317,7 +315,6 @@ id="harga"
         description: `Layanan dukungan teknis kami mencakup bantuan dalam mengelola server, menyelesaikan masalah teknis, serta memberikan saran dan bimbingan untuk memaksimalkan kinerja situs web atau aplikasi Anda. Tim dukungan kami tersedia 24/7 untuk membantu Anda dengan segala pertanyaan atau masalah yang Anda hadapi.`,
         icon: 'tabler:chevrons-right',
       },
-
     ]}
   >
     <Fragment slot="bg">
@@ -329,10 +326,10 @@ id="harga"
 
   <Steps2
     title="Kontak Kami"
-    subtitle="Have questions? Feel free to contact us using the form below. We're here to help!"
+    subtitle="Anda masih punya pertanyaan? langsung tanyakan kepada kami melalui kontak Whastapp dibawah"
     callToAction={{
-      text: 'Selengkapnya',
-      href: '/contact',
+      text: 'Saya ingin bertanya?',
+      href: 'https://api.whatsapp.com/send/?phone=6285174201840&text=Saya+dari+website+bitserver.cloud+ingin+bertanya+%3F&type=phone_number&app_absent=0',
     }}
     items={[
       {
@@ -358,8 +355,7 @@ id="harga"
   <BlogLatestPosts
     id="blog"
     title="Tetap terinformasi dengan blog BITServer"
-information={`Jelajahi koleksi artikel, panduan, dan tutorial kami tentang pengembangan web, tren desain, dan penggunaan BITServer secara efektif untuk proyek Anda.`}
-
+    information={`Jelajahi koleksi artikel, panduan, dan tutorial kami tentang pengembangan web, tren desain, dan penggunaan BITServer secara efektif untuk proyek Anda.`}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
