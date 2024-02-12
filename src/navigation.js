@@ -6,20 +6,20 @@ export const headerData = {
       text: 'Beranda',
       href: getPermalink('/'),
     },
-    
+
     {
       text: 'Tentang Kami',
       href: getPermalink('/about'),
     },
     {
       text: 'Harga',
-      href: getPermalink('/pricing')
+      href: getPermalink('/pricing'),
     },
-   
-    {
-      text: 'Kontak Kami',
-          href: getPermalink('/contact'),
-    },
+
+    // {
+    //   text: 'Kontak Kami',
+    //       href: getPermalink('/contact'),
+    // },
     // {
     //   text: 'Homes',
     //   links: [
@@ -134,7 +134,6 @@ export const headerData = {
     // },
   ],
   actions: [{ text: 'Kontak Kami', href: getPermalink('/contact'), target: '_blank' }],
-
 };
 
 export const footerData = {
@@ -161,19 +160,18 @@ export const footerData = {
     //     { text: 'AstroWind Desktop', href: '#' },
     //   ],
     // },
-     {
-       title: 'Blog',
-       links: [
-         { text: 'Blog List', href: '#' },
-         { text: 'Category Page', href: getPermalink ('/category/tutorials') },
-         { text: 'Tag Page', href: getPermalink ('/astro/tag') },
-         
-       ],
-     },
+    {
+      title: 'Blog',
+      links: [
+        { text: 'Blog List', href: '#' },
+        { text: 'Category Page', href: getPermalink('/category/tutorials') },
+        { text: 'Tag Page', href: getPermalink('/astro/tag') },
+      ],
+    },
     {
       title: 'Inovasi dan Kreativitas',
-      description: 'Kami dari CV Bangkit Informatika Teknologi tim muda penuh semangat. Dengan komitmen kami pada kualitas, inovasi, dan keunggulan, kami hadir untuk membantu mewujudkan solusi teknologi terbaik bagi kebutuhan Anda.',
-     
+      description:
+        'Kami dari CV Bangkit Informatika Teknologi tim muda penuh semangat. Dengan komitmen kami pada kualitas, inovasi, dan keunggulan, kami hadir untuk membantu mewujudkan solusi teknologi terbaik bagi kebutuhan Anda.',
     },
   ],
   secondaryLinks: [
